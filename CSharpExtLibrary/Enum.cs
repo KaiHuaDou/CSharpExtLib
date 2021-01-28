@@ -19,4 +19,12 @@
         Abstract = 6,
         Everyone = int.MaxValue
     }
+    public enum ObjectSimlar
+    {
+        Simlar = 0,
+        Type = 1,
+        TypeBase = 2,
+        Object = 3,
+        Diff = int.MaxValue
+    }
 }
