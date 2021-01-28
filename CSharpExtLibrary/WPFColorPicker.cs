@@ -2,23 +2,36 @@
 using System.Windows.Forms;
 namespace CSharpExtLibrary
 {
-    static class WPFColorPicker
+    public static class WPFColorPicker
     {
-        static Color PickColor()
+        public struct NameColor
         {
-            Color color = new Color( );
+            public Color color;
+            public string Name;
+        }
+        public static NameColor PickColor()
+        {
+            NameColor nameColor = new NameColor( );
             ColorDialog cd = new ColorDialog( );
             cd.AnyColor = true;
             cd.FullOpen = true;
             cd.SolidColorOnly = false;
             if(cd.ShowDialog( ) == DialogResult.OK)
             {
-                color.A = cd.Color.A;
-                color.R = cd.Color.R;
-                color.G = cd.Color.G;
-                color.B = cd.Color.B;
+                nameColor.color.A = cd.Color.A;
+                nameColor.color.R = cd.Color.R;
+                nameColor.color.G = cd.Color.G;
+                nameColor.color.B = cd.Color.B;
+                if(cd.Color.IsNamedColor == true)
+                {
+                    nameColor.Name = cd.Color.Name;
+                }
+                else
+                {
+                    nameColor.Name = cd.Color.ToString( );
+                }
             }
-            return color;
+            return nameColor;
         }
     }
 }
