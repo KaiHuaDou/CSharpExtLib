@@ -10,7 +10,7 @@ namespace CSharpExtLibrary
             int l = s.Length;
             for (int i = 0; i < l; i++)
             {
-                Console.Write("%c", s[i]);
+                Console.Write("{0}", s[i]);
                 Thread.Sleep(span);
             }
             if (withEnter == true)
