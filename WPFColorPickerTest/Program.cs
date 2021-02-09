@@ -1,5 +1,6 @@
 ﻿using CSharpExtLibrary;
 using System;
+using System.Windows;
 
 namespace CSharpExtLibraryTest
 {
@@ -26,5 +27,8 @@ namespace CSharpExtLibraryTest
             while(true)
                 JumpCharTester( );
         }
+    }
+    public class WpfApp : Application
+    {
     }
 }

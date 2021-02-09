@@ -34,6 +34,5 @@ namespace CSharpExtLibrary
             }
             Console.Write("\n");
         }
-
     }
 }
