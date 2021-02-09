@@ -3,9 +3,9 @@ using System.Threading;
 
 namespace CSharpExtLibrary
 {
-    class JumpChar
+    public static class JumpChar
     {
-        void jumpPrint(string s, int span = 50, bool withEnter = true)
+        public static void jumpPrint(string s, int span = 50, bool withEnter = true)
         {
             int l = s.Length;
             for (int i = 0; i < l; i++)
@@ -16,7 +16,7 @@ namespace CSharpExtLibrary
             if (withEnter == true)
                 Console.Write("\n");
         }
-        void jumpRemove(string s, int span = 100)
+        public static void jumpRemove(string s, int span = 100)
         {
             int l = s.Length;
             Console.Write("{0}", s);

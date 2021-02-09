@@ -1,18 +1,30 @@
 ﻿using CSharpExtLibrary;
+using System;
 
-namespace WPFColorPickerTest
+namespace CSharpExtLibraryTest
 {
     class Program
     {
-        static void Main(string[] args)
+        public static void ColorPickerTester()
         {
             WPFColorPicker.NameColor nameColor = WPFColorPicker.PickColor( );
-            System.Console.WriteLine(nameColor.Name);
-            System.Console.WriteLine(nameColor.color.A);
-            System.Console.WriteLine(nameColor.color.R);
-            System.Console.WriteLine(nameColor.color.G);
-            System.Console.WriteLine(nameColor.color.B);
-            System.Console.ReadLine( );
+            Console.WriteLine(nameColor.Name);
+            Console.WriteLine(nameColor.color.A);
+            Console.WriteLine(nameColor.color.R);
+            Console.WriteLine(nameColor.color.G);
+            Console.WriteLine(nameColor.color.B);
+            Console.ReadLine( );
+        }
+        public static void JumpCharTester()
+        {
+            JumpChar.jumpPrint(Console.ReadLine( ));
+            JumpChar.jumpRemove(Console.ReadLine( ));
+            
+        }
+        static void Main(string[] args)
+        {
+            while(true)
+                JumpCharTester( );
         }
     }
 }
