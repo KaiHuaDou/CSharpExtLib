@@ -28,7 +28,4 @@ namespace CSharpExtLibraryTest
                 JumpCharTester( );
         }
     }
-    public class WpfApp : Application
-    {
-    }
 }
