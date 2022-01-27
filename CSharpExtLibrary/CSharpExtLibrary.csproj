@@ -35,7 +35,6 @@
     <Compile Include="JumpChar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WPFColorPicker.cs" />
-    <Compile Include="WPFSingleInstanceApp.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Microsoft.VisualBasic" />
