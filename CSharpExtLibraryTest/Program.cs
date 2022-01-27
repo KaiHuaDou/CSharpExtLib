@@ -1,31 +1,15 @@
-﻿using CSharpExtLibrary;
-using System;
-using System.Windows;
+﻿using System;
+using CSharpExtLibrary;
 
 namespace CSharpExtLibraryTest
 {
-    class Program
+    public class Program
     {
-        public static void ColorPickerTester()
+        public static void Main(string[] args)
         {
-            WPFColorPicker.NameColor nameColor = WPFColorPicker.PickColor( );
-            Console.WriteLine(nameColor.Name);
-            Console.WriteLine(nameColor.color.A);
-            Console.WriteLine(nameColor.color.R);
-            Console.WriteLine(nameColor.color.G);
-            Console.WriteLine(nameColor.color.B);
-            Console.ReadLine( );
-        }
-        public static void JumpCharTester()
-        {
-            JumpChar.jumpPrint(Console.ReadLine( ));
-            JumpChar.jumpRemove(Console.ReadLine( ));
-            
-        }
-        static void Main(string[] args)
-        {
-            while(true)
-                JumpCharTester( );
+            JumpChar.jumpPrint("KaiHuaDou: https://www.github.com/KaiHuaDou");
+            Console.Clear();
+            JumpChar.jumpRemove("KaiHuaDou: https://www.github.com/KaiHuaDou");
         }
     }
 }
