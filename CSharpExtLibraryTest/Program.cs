@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using CSharpExtLibrary;
 
 namespace CSharpExtLibraryTest
@@ -7,9 +8,7 @@ namespace CSharpExtLibraryTest
     {
         public static void Main(string[] args)
         {
-            JumpChar.jumpPrint("KaiHuaDou: https://www.github.com/KaiHuaDou");
-            Console.Clear();
-            JumpChar.jumpRemove("KaiHuaDou: https://www.github.com/KaiHuaDou");
+            ConfigList<object> clo = new ConfigList<object>(null);
         }
     }
 }

@@ -31,7 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Include="Configer.cs" />
+    <Compile Include="ConfigList.cs" />
+    <Compile Include="ConfigOne.cs" />
     <Compile Include="JumpChar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WPFColor.cs" />
