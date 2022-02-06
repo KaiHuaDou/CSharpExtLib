@@ -1,0 +1,44 @@
+﻿<Window xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:CSharpExtLibrary"
+        xmlns:System="clr-namespace:System;assembly=mscorlib" x:Class="CSharpExtLibrary.FontDialog"
+        Height="365" Width="400" ResizeMode="NoResize">
+    <Grid Margin="0">
+        <ListBox x:Name="FontListBox" HorizontalAlignment="Left" Height="190" Margin="10,50,0,0"
+                VerticalAlignment="Top" Width="270" SelectionChanged="FontListBox_SelectionChanged" />
+        <TextBox x:Name="FontTextBox" HorizontalAlignment="Left" Height="30" Margin="10,10,0,0"
+                TextWrapping="Wrap" VerticalAlignment="Top" Width="270" FontSize="20" Text=""/>
+        <ListBox x:Name="SizeListBox" HorizontalAlignment="Left" Height="190" Margin="290,50,0,0"
+                VerticalAlignment="Top" Width="95" SelectionChanged="SizeListBox_SelectionChanged">
+            <System:String>5</System:String>
+            <System:String>8</System:String>
+            <System:String>9</System:String>
+            <System:String>10</System:String>
+            <System:String>11</System:String>
+            <System:String>12</System:String>
+            <System:String>14</System:String>
+            <System:String>16</System:String>
+            <System:String>18</System:String>
+            <System:String>20</System:String>
+            <System:String>22</System:String>
+            <System:String>24</System:String>
+            <System:String>26</System:String>
+            <System:String>28</System:String>
+            <System:String>36</System:String>
+            <System:String>48</System:String>
+            <System:String>72</System:String>
+        </ListBox>
+        <TextBox x:Name="SizeTextBox" HorizontalAlignment="Left" Height="30" Margin="290,10,0,0"
+                TextWrapping="Wrap" VerticalAlignment="Top" Width="95" FontSize="20" />
+        <StackPanel Orientation="Horizontal" Margin="10,250,0,0" HorizontalAlignment="Left"
+                VerticalAlignment="Top">
+            <CheckBox x:Name="BoldCheckBox" Content="粗体" Width="85" />
+            <CheckBox x:Name="ItalicCheckBox" Content="斜体" Width="85" />
+            <CheckBox x:Name="DeletedCheckBox" Content="删除线" Width="85" />
+        </StackPanel>
+        <Button x:Name="ConfirmButton" Content="确定" HorizontalAlignment="Right" Margin="0,0,10,10"
+                VerticalAlignment="Bottom" Width="75" IsDefault="True" />
+        <Button x:Name="CancelButton" Content="取消" HorizontalAlignment="Right" Margin="0,0,95,10"
+                VerticalAlignment="Bottom" Width="75" IsCancel="True" />
+    </Grid>
+</Window>

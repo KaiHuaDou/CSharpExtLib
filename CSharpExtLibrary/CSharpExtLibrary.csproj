@@ -33,6 +33,10 @@
   <ItemGroup>
     <Compile Include="ConfigList.cs" />
     <Compile Include="ConfigOne.cs" />
+    <Compile Include="FontDialog.xaml.cs">
+      <DependentUpon>FontDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="IsSymbolFont.cs" />
     <Compile Include="JumpChar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WPFColor.cs" />
@@ -41,10 +45,18 @@
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
+    <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.XML" />
     <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="FontDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,14 +1,16 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Windows;
 using CSharpExtLibrary;
 
 namespace CSharpExtLibraryTest
 {
     public class Program
     {
+        [STAThread]
         public static void Main(string[] args)
         {
-            ConfigList<object> clo = new ConfigList<object>(null);
+            Application app = new Application();
+            app.Run(new FontDialog());
         }
     }
 }
