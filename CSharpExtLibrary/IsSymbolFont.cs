@@ -7,10 +7,10 @@ namespace CSharpExtLibrary
 {
     public static class FontManager
     {
-        public static bool IsSymbolFont(string fontName, IntPtr hwnd)
+        public static bool IsSymbolFont(string fontName)
         {
             Font font = new Font(fontName, 15);
-            FontSupporter.PanoseFontFamilyTypes pfft = FontSupporter.PanoseFontFamilyType(Graphics.FromHwnd(hwnd), font);
+            FontSupporter.PanoseFontFamilyTypes pfft = FontSupporter.PanoseFontFamilyType(Graphics.FromHwnd(new IntPtr()), font);
             if (pfft == FontSupporter.PanoseFontFamilyTypes.PAN_FAMILY_PICTORIAL)
             {
                 return true;

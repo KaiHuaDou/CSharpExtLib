@@ -9,8 +9,10 @@ namespace CSharpExtLibraryTest
         [STAThread]
         public static void Main(string[] args)
         {
-            Application app = new Application();
-            app.Run(new FontDialog());
+            WPFFontDialog wfd = new WPFFontDialog();
+            wfd.ShowDialog();
+            Console.WriteLine(wfd.fontFamily.ToString());
+            Console.ReadKey();
         }
     }
 }
