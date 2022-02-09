@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
@@ -24,28 +23,21 @@ namespace CSharpExtLibrary
         private bool hasResult = true;
         private static List<ListBoxItem> GetFonts()
         {
-            CultureInfo currentCulture = CultureInfo.CurrentUICulture;
-            CultureInfo enUsCultureInfo = new CultureInfo("en-US");
-            CultureInfo specificCulture;
             ListBoxItem lbi;
             List<ListBoxItem> fontList = new List<ListBoxItem>();
             foreach (var family in Fonts.SystemFontFamilies)
             {
                 foreach (var keyPair in family.FamilyNames)
                 {
-                    specificCulture = keyPair.Key.GetSpecificCulture();
-                    if (specificCulture.Equals(currentCulture) || specificCulture.Equals(enUsCultureInfo))
+                    if (keyPair.Key != null && !string.IsNullOrEmpty(keyPair.Value))
                     {
-                        if (keyPair.Key != null && !string.IsNullOrEmpty(keyPair.Value))
+                        lbi = new ListBoxItem();
+                        lbi.Content = keyPair.Value;
+                        if (FontManager.IsSymbolFont(lbi.Content.ToString()) == false)
                         {
-                            lbi = new ListBoxItem();
-                            lbi.Content = keyPair.Value;
-                            if (FontManager.IsSymbolFont(lbi.Content.ToString()) == false)
-                            {
-                                lbi.FontFamily = new FontFamily(keyPair.Value);
-                            }
-                            fontList.Add(lbi);
+                            lbi.FontFamily = new FontFamily(keyPair.Value);
                         }
+                        fontList.Add(lbi);
                     }
                 }
             }
@@ -80,7 +72,7 @@ namespace CSharpExtLibrary
 
         private void ConfirmButton_Click(object sender, RoutedEventArgs e)
         {
-            var exTypes = new Type[] 
+            var exTypes = new Type[]
             {
                 typeof(NullReferenceException),
                 typeof(ArgumentNullException),

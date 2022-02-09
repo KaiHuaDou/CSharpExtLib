@@ -12,6 +12,8 @@
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -33,10 +35,11 @@
   <ItemGroup>
     <Compile Include="ConfigList.cs" />
     <Compile Include="ConfigOne.cs" />
+    <Compile Include="Converter.cs" />
     <Compile Include="WPFFontDialog.xaml.cs">
       <DependentUpon>WPFFontDialog.xaml</DependentUpon>
     </Compile>
-    <Compile Include="IsSymbolFont.cs" />
+    <Compile Include="FontManager.cs" />
     <Compile Include="JumpChar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WPFColor.cs" />

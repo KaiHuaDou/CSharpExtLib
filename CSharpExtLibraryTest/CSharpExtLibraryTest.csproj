@@ -7,8 +7,8 @@
     <ProjectGuid>{1113F025-D50B-4D5B-A3BD-FFB4DBAABDFE}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>WPFColorPickerTest</RootNamespace>
-    <AssemblyName>WPFColorPickerTest</AssemblyName>
+    <RootNamespace>CSharpExtLibraryTest</RootNamespace>
+    <AssemblyName>CSharpExtLibraryTest</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -32,6 +32,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>CSharpExtLibraryTest.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CSharpExtLibrary">

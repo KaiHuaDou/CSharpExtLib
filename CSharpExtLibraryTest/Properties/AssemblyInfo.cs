@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("WPFColorPickerTest")]
+[assembly: AssemblyTitle("CSharpExtLibraryTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("China")]
-[assembly: AssemblyProduct("WPFColorPickerTest")]
-[assembly: AssemblyCopyright("Copyright © China 2021")]
+[assembly: AssemblyProduct("CSharpExtLibraryTest")]
+[assembly: AssemblyCopyright("Copyright © China 2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
