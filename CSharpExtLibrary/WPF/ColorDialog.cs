@@ -1,13 +1,13 @@
 ﻿using System.Windows.Media;
 using System.Windows.Forms;
-namespace CSharpExtLibrary
-{
-    public static class WPFColor
+namespace CSharpExtLibrary.Math
+{   
+    public static class ColorDialog
     {
         public static Color PickColor()
         {
             Color color = new Color( );
-            ColorDialog cd = new ColorDialog( );
+            System.Windows.Forms.ColorDialog cd = new System.Windows.Forms.ColorDialog( );
             cd.AnyColor = true;
             cd.FullOpen = true;
             cd.SolidColorOnly = false;

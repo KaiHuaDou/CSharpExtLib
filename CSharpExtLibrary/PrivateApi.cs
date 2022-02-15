@@ -12,7 +12,7 @@ namespace CSharpExtLibrary
         }
     }
 
-    public static class StdApi
+    public static class PrivateApi
     {
         public static List<ListBoxItem> Purge(List<ListBoxItem> list)
         {

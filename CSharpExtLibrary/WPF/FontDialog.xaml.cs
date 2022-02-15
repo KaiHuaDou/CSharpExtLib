@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace CSharpExtLibrary
+namespace CSharpExtLibrary.Math
 {
     /// <summary>
     /// FontDialog.xaml 的交互逻辑
@@ -44,7 +44,7 @@ namespace CSharpExtLibrary
                 }
             }
             fontList.Sort(new FontListBoxItemComparer());
-            fontList = StdApi.Purge(fontList);
+            fontList = PrivateApi.Purge(fontList);
             return fontList;
         }
         public new bool ShowDialog()

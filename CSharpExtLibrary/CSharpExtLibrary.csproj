@@ -36,14 +36,16 @@
     <Compile Include="ConfigList.cs" />
     <Compile Include="ConfigOne.cs" />
     <Compile Include="Converter.cs" />
-    <Compile Include="StdApi.cs" />
-    <Compile Include="WPFFontDialog.xaml.cs">
-      <DependentUpon>WPFFontDialog.xaml</DependentUpon>
+    <Compile Include="Math\Fraction.cs" />
+    <Compile Include="Math\StdApi.cs" />
+    <Compile Include="PrivateApi.cs" />
+    <Compile Include="WPF\FontDialog.xaml.cs">
+      <DependentUpon>FontDialog.xaml</DependentUpon>
     </Compile>
     <Compile Include="FontManager.cs" />
     <Compile Include="JumpChar.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="WPFColor.cs" />
+    <Compile Include="WPF\ColorDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="PresentationCore" />
@@ -57,7 +59,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="WPFFontDialog.xaml">
+    <Page Include="WPF\FontDialog.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
