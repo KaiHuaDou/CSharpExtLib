@@ -36,6 +36,7 @@
     <Compile Include="ConfigList.cs" />
     <Compile Include="ConfigOne.cs" />
     <Compile Include="Converter.cs" />
+    <Compile Include="StdApi.cs" />
     <Compile Include="WPFFontDialog.xaml.cs">
       <DependentUpon>WPFFontDialog.xaml</DependentUpon>
     </Compile>

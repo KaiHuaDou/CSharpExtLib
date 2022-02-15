@@ -16,11 +16,13 @@ namespace CSharpExtLibrary
         {
             InitializeComponent();
             FontListBox.ItemsSource = GetFonts();
+            FontListBox.SelectedIndex = 0;
+            SizeListBox.SelectedIndex = 0;
         }
         public bool isBold, isItalic, isDeleted;
         public FontFamily fontFamily;
         public int fontSize;
-        private bool hasResult = true;
+        private bool hasResult = false;
         private static List<ListBoxItem> GetFonts()
         {
             ListBoxItem lbi;
@@ -29,18 +31,20 @@ namespace CSharpExtLibrary
             {
                 foreach (var keyPair in family.FamilyNames)
                 {
-                    if (keyPair.Key != null && !string.IsNullOrEmpty(keyPair.Value))
-                    {
-                        lbi = new ListBoxItem();
-                        lbi.Content = keyPair.Value;
-                        if (FontManager.IsSymbolFont(lbi.Content.ToString()) == false)
+                        if (keyPair.Key != null && !string.IsNullOrEmpty(keyPair.Value))
                         {
-                            lbi.FontFamily = new FontFamily(keyPair.Value);
+                            lbi = new ListBoxItem();
+                            lbi.Content = keyPair.Value;
+                            if (FontManager.IsSymbolFont(lbi.Content.ToString()) == false)
+                            {
+                                lbi.FontFamily = new FontFamily(keyPair.Value);
+                            }
+                            fontList.Add(lbi);
                         }
-                        fontList.Add(lbi);
-                    }
                 }
             }
+            fontList.Sort(new FontListBoxItemComparer());
+            fontList = StdApi.Purge(fontList);
             return fontList;
         }
         public new bool ShowDialog()
@@ -49,9 +53,9 @@ namespace CSharpExtLibrary
             return hasResult;
         }
 
-        public new void Show()
+        public new bool Show()
         {
-            this.ShowDialog();
+            return this.ShowDialog();
         }
 
         private void FontListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -61,7 +65,6 @@ namespace CSharpExtLibrary
 
         private void CancelButton_Click(object sender, RoutedEventArgs e)
         {
-            hasResult = false;
             this.Close();
         }
 
@@ -86,12 +89,15 @@ namespace CSharpExtLibrary
                 isBold = (bool)BoldCheckBox.IsChecked;
                 isItalic = (bool)ItalicCheckBox.IsChecked;
                 isDeleted = (bool)DeletedCheckBox.IsChecked;
+                hasResult = true;
+                this.Close();
             }
             catch (Exception ex) when (exTypes.Contains(ex.GetType()))
             {
-                hasResult = false;
+                MessageBox.Show("自定义字体或字号时请确定输入正确！", "选择字体",
+                    MessageBoxButton.OK, MessageBoxImage.Error,
+                    MessageBoxResult.OK, MessageBoxOptions.ServiceNotification);
             }
-            this.Close();
         }
     }
 }

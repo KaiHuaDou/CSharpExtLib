@@ -1,48 +1,61 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Windows;
+using System.Windows.Forms;
+using System.Windows.Controls;
 
 namespace CSharpExtLibrary
 {
+    public class FontListBoxItemComparer : IComparer<ListBoxItem>
+    {
+        public int Compare(ListBoxItem x, ListBoxItem y)
+        {
+            return ((string)x.Content).CompareTo((string)y.Content);
+        }
+    }
     public static class FontManager
     {
         public static bool IsSymbolFont(string fontName)
         {
-            Font font = new Font(fontName, 15);
-            FontSupporter.PanoseFontFamilyTypes pfft = FontSupporter.PanoseFontFamilyType(Graphics.FromHwnd(new IntPtr()), font);
-            if (pfft == FontSupporter.PanoseFontFamilyTypes.PAN_FAMILY_PICTORIAL)
+            FontType fontType = FontSupporter.GetFontType(fontName);
+            if(fontType == FontType.SYMBOL || fontType == FontType.DECORATE)
             {
                 return true;
             }
             return false;
         }
     }
+    public enum FontType : int
+    {
+        EMPTY = 0,
+        ERROR = 1,
+        DISPLAY = 2,
+        SCRIPT = 3,
+        DECORATE = 4,
+        SYMBOL = 5
+    }
+
     public class FontSupporter
     {
-        public enum PanoseFontFamilyTypes : int
+        public static FontType GetFontType(string fontName)
         {
-            //  Any
-            PAN_ANY = 0,
-            // No Fit
-            PAN_NO_FIT = 1,
-            // Text and Display
-            PAN_FAMILY_TEXT_DISPLAY = 2,
-            // Script
-            PAN_FAMILY_SCRIPT = 3,
-            // Decorative
-            PAN_FAMILY_DECORATIVE = 4,
-            // Pictorial                      
-            PAN_FAMILY_PICTORIAL = 5
+            Font font = new Font("Arial", 15);
+            try
+            {
+                font = new Font(fontName, 15, FontStyle.Regular);
+            }
+            catch (Exception) { }
+            return GetFontType(Graphics.FromHwnd(new IntPtr()), font);
         }
+
         [DllImport("gdi32", CharSet = CharSet.Ansi)]
-        private static extern int GetOutlineTextMetrics(
-         IntPtr hdc, int cbData, IntPtr lpOtm);
+        private static extern int GetOutlineTextMetrics(IntPtr hdc, int cbData, IntPtr lpOtm);
 
         [DllImport("gdi32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         private static extern IntPtr SelectObject(IntPtr hdc, IntPtr hObj);
 
-        public static PanoseFontFamilyTypes PanoseFontFamilyType(
+        private static FontType GetFontType(
             Graphics graphics, Font font)
         {
             byte bFamilyType = 0;
@@ -60,7 +73,7 @@ namespace CSharpExtLibrary
             Marshal.FreeCoTaskMem(lpOtm);
             SelectObject(hdc, hFontOld);
             graphics.ReleaseHdc(hdc);
-            return (PanoseFontFamilyTypes)bFamilyType;
+            return (FontType)bFamilyType;
         }
     }
 }
