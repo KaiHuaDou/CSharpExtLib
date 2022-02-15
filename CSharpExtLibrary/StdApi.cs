@@ -4,6 +4,14 @@ using System.Windows.Controls;
 
 namespace CSharpExtLibrary
 {
+    public class FontListBoxItemComparer : IComparer<ListBoxItem>
+    {
+        public int Compare(ListBoxItem x, ListBoxItem y)
+        {
+            return ((string)x.Content).CompareTo((string)y.Content);
+        }
+    }
+
     public static class StdApi
     {
         public static List<ListBoxItem> Purge(List<ListBoxItem> list)

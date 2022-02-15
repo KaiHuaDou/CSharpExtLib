@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Drawing;
 using System.Runtime.InteropServices;
-using System.Windows.Forms;
-using System.Windows.Controls;
 
 namespace CSharpExtLibrary
 {
-    public class FontListBoxItemComparer : IComparer<ListBoxItem>
-    {
-        public int Compare(ListBoxItem x, ListBoxItem y)
-        {
-            return ((string)x.Content).CompareTo((string)y.Content);
-        }
-    }
     public static class FontManager
     {
         public static bool IsSymbolFont(string fontName)
