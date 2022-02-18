@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using CSharpExtLibrary;
+using CSharpExtLibrary.WPF;
 
 namespace CSharpExtLibraryTest
 {
@@ -14,7 +14,7 @@ namespace CSharpExtLibraryTest
         }
         public static void TestWPFFontDialog()
         {
-            WPFFontDialog wfd = new WPFFontDialog();
+            FontDialog wfd = new FontDialog();
             if (wfd.Show() == true)
             {
                 Console.WriteLine("Font:" + wfd.fontFamily.ToString());

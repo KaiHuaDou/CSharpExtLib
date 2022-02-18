@@ -5,14 +5,14 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace CSharpExtLibrary.Math
+namespace CSharpExtLibrary.WPF
 {
     /// <summary>
     /// FontDialog.xaml 的交互逻辑
     /// </summary>
-    public sealed partial class WPFFontDialog : Window
+    public sealed partial class FontDialog : Window
     {
-        public WPFFontDialog()
+        public FontDialog()
         {
             InitializeComponent();
             FontListBox.ItemsSource = GetFonts();

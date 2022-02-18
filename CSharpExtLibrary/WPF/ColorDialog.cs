@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 using System.Windows.Forms;
-namespace CSharpExtLibrary.Math
+namespace CSharpExtLibrary.WPF
 {   
     public static class ColorDialog
     {
