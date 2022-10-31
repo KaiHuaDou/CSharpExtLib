@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
-namespace CSharpExtLibrary.WPF
+namespace CSharpExtLib.WPF
 {
     /// <summary>
     /// FontDialog.xaml 的交互逻辑
@@ -21,7 +21,7 @@ namespace CSharpExtLibrary.WPF
         }
         public bool isBold, isItalic, isDeleted;
         public FontFamily fontFamily;
-        public int fontSize;
+        public float fontSize;
         private bool hasResult = false;
         private static List<ListBoxItem> GetFonts()
         {
@@ -85,7 +85,7 @@ namespace CSharpExtLibrary.WPF
             try
             {
                 fontFamily = new FontFamily(FontTextBox.Text);
-                fontSize = int.Parse(SizeTextBox.Text);
+                fontSize = float.Parse(SizeTextBox.Text);
                 isBold = (bool)BoldCheckBox.IsChecked;
                 isItalic = (bool)ItalicCheckBox.IsChecked;
                 isDeleted = (bool)DeletedCheckBox.IsChecked;

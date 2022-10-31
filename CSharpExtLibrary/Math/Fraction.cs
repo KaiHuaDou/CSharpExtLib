@@ -1,4 +1,4 @@
-﻿namespace CSharpExtLibrary.Math
+﻿namespace CSharpExtLib.Math
 {
     public class Fraction
     {
@@ -71,18 +71,6 @@
         {
             frac.above--;
             return frac;
-        }
-        public static bool operator ==(Fraction left, Fraction right)
-        {
-            if(right.above == left.above && right.below == left.below)
-            {
-                return true;
-            }
-            return false;
-        }
-        public static bool operator !=(Fraction left, Fraction right)
-        {
-            return !(right == left);
         }
     }
 }

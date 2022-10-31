@@ -1,6 +1,6 @@
 ﻿using System.Windows.Media;
 using System.Windows.Forms;
-namespace CSharpExtLibrary.WPF
+namespace CSharpExtLib.WPF
 {   
     public static class ColorDialog
     {
@@ -13,7 +13,7 @@ namespace CSharpExtLibrary.WPF
             cd.SolidColorOnly = false;
             if(cd.ShowDialog( ) == DialogResult.OK)
             {
-                color = Converter.ConvertColor(cd.Color);
+                color = EasyConverter.ConvertColor(cd.Color);
             }
             return color;
         }

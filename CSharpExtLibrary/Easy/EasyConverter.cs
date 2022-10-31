@@ -1,8 +1,8 @@
 ﻿using System.Windows.Media;
 
-namespace CSharpExtLibrary
+namespace CSharpExtLib
 {
-    public static class Converter
+    public static class EasyConverter
     {
         public static Color ConvertColor(System.Drawing.Color color)
         {
@@ -29,10 +29,6 @@ namespace CSharpExtLibrary
         {
             System.Drawing.FontFamily result = new System.Drawing.FontFamily(fontFamily.Source);
             return result;
-        }
-        public static void ConvertNothing()
-        {
-            
         }
     }
 }

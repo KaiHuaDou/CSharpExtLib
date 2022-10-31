@@ -1,4 +1,4 @@
-﻿namespace CSharpExtLibrary.Math
+﻿namespace CSharpExtLib.Math
 {
     public static class StdApi
     {

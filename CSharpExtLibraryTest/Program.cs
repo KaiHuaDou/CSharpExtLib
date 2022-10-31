@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Windows;
-using CSharpExtLibrary.WPF;
+using CSharpExtLib.WPF;
 
 namespace CSharpExtLibraryTest
 {

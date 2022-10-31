@@ -2,7 +2,7 @@
 using System.Linq;
 using System.Windows.Controls;
 
-namespace CSharpExtLibrary
+namespace CSharpExtLib
 {
     public class FontListBoxItemComparer : IComparer<ListBoxItem>
     {

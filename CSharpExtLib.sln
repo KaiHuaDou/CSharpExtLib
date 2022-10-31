@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExtLibrary", "CSharpExtLibrary\CSharpExtLibrary.csproj", "{0D37BCF6-C6E2-486D-9911-1CDB4D93778E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExtLib", "CSharpExtLibrary\CSharpExtLib.csproj", "{0D37BCF6-C6E2-486D-9911-1CDB4D93778E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExtLibraryTest", "CSharpExtLibraryTest\CSharpExtLibraryTest.csproj", "{1113F025-D50B-4D5B-A3BD-FFB4DBAABDFE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExtLibTest", "CSharpExtLibraryTest\CSharpExtLibTest.csproj", "{1113F025-D50B-4D5B-A3BD-FFB4DBAABDFE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{0D37BCF6-C6E2-486D-9911-1CDB4D93778E} = {0D37BCF6-C6E2-486D-9911-1CDB4D93778E}
 	EndProjectSection

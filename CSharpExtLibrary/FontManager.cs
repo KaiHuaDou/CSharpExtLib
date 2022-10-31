@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace CSharpExtLibrary
+namespace CSharpExtLib
 {
     public static class FontManager
     {
