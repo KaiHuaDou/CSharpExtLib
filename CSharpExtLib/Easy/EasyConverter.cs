@@ -16,8 +16,7 @@ namespace CSharpExtLib
         public static System.Drawing.Color ConvertColor(Color color)
         {
             System.Drawing.Color result;
-            result = System.Drawing.Color.FromArgb(
-                color.A, color.R, color.G, color.B);
+            result = System.Drawing.Color.FromArgb(color.A, color.R, color.G, color.B);
             return result;
         }
         public static FontFamily ConvertFontFamily(System.Drawing.FontFamily fontFamily)

@@ -37,8 +37,9 @@
     <Compile Include="Easy\EasyConfigList.cs" />
     <Compile Include="Easy\EasyConfigOne.cs" />
     <Compile Include="Easy\EasyConverter.cs" />
+    <Compile Include="Easy\EasyString.cs" />
     <Compile Include="Math\Fraction.cs" />
-    <Compile Include="Math\StdApi.cs" />
+    <Compile Include="Math\Universal.cs" />
     <Compile Include="WPF\PrivateApi.cs" />
     <Compile Include="WPF\FontDialog.xaml.cs">
       <DependentUpon>FontDialog.xaml</DependentUpon>

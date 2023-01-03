@@ -1,76 +1,123 @@
-﻿namespace CSharpExtLib.Math
+﻿using System;
+using System.Runtime.Serialization;
+
+namespace CSharpExtLib.Math
 {
-    public class Fraction
+    [Serializable]
+    public class Fraction: ISerializable
     {
-        public int above;
-        public int below;
-        public static Fraction Simplify(Fraction fraction)
+        private int _below;
+        public int above { get; set; }
+        public int below
         {
-            int maxFactor = StdApi.MaxFactor(fraction.below, fraction.above);
-            fraction.below /= maxFactor;
-            fraction.above /= maxFactor;
-            return fraction;
+            get { return _below; }
+            set
+            {
+                if (value != 0)  _below = value;
+                else throw new DivideByZeroException( );
+            }
         }
-        public static Fraction Add(Fraction frac1, Fraction frac2)
+        public Fraction()
+        {
+            above = 0;
+            below = 1;
+        }
+        public Fraction(int a, int b)
+        {
+            above = a;
+            below = b;
+        }
+        public Fraction Simplify()
+        {
+            int maxFactor = Universal.MaxFactor(this.below, this.above);
+            return new Fraction(above /= maxFactor, below /= maxFactor);
+        }
+        public static Fraction Add(Fraction a, Fraction b)
         {
             Fraction result = new Fraction();
-            result.below = frac1.below * frac2.below;
-            result.above = frac1.above * frac2.below + frac2.above * frac1.below;
-            return Simplify(result);
+            result.below = a.below * b.below;
+            result.above = a.above * b.below + b.above * a.below;
+            return result.Simplify();
         }
-        public static Fraction Sub(Fraction frac1, Fraction frac2)
+        public static Fraction Sub(Fraction a, Fraction b)
         {
-            frac2.above = -frac2.above;
-            return Add(frac1, frac2);
+            return Add(a, -b);
         }
-        public static Fraction Mul(Fraction frac1, Fraction frac2)
+        public static Fraction Mul(Fraction a, Fraction b)
         {
             Fraction result = new Fraction();
-            result.above = frac1.above * frac2.above;
-            result.below = frac1.below * frac2.below;
-            return Simplify(result);
+            result.above = a.above * b.above;
+            result.below = a.below * b.below;
+            return result.Simplify();
         }
-        public static Fraction Div(Fraction frac1, Fraction frac2)
+        public static Fraction Div(Fraction a, Fraction b)
         {
-            int t = frac2.below;
-            frac2.below = frac2.above;
-            frac2.above = t;
-            return Mul(frac1, frac2);
+            int t = b.below;
+            b.below = b.above;
+            b.above = t;
+            return Mul(a, b);
         }
-        public static Fraction Square(Fraction frac)
+        public static Fraction Square(Fraction f)
         {
-            frac.above *= frac.above;
-            frac.below *= frac.below;
+            f.above *= f.above;
+            f.below *= f.below;
+            return f;
+        }
+        public override bool Equals(object obj)
+        {
+            return this == (Fraction)obj;
+        }
+        public override int GetHashCode( )
+        {
+            return ((double)above / below).GetHashCode( );
+        }
+        public override string ToString( )
+        {
+            return above + "/" + below;
+        }
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue("above", above);
+            info.AddValue("below", below);
+        }
+        public static Fraction operator + (Fraction l, Fraction r)
+        {
+            return Add(l, r);
+        }
+        public static Fraction operator -(Fraction l, Fraction r)
+        {
+            return Sub(l, r);
+        }
+        public static Fraction operator -(Fraction frac)
+        {
+            frac.above = -frac.above;
             return frac;
         }
-        public static Fraction operator + (Fraction left, Fraction right)
+        public static Fraction operator *(Fraction l, Fraction r)
         {
-            return Add(left, right);
+            return Mul(l, r);
         }
-        public static Fraction operator -(Fraction left, Fraction right)
+        public static Fraction operator /(Fraction l, Fraction r)
         {
-            return Sub(left, right);
-        }
-
-        public static Fraction operator *(Fraction left, Fraction right)
-        {
-            return Mul(left, right);
-        }
-
-        public static Fraction operator /(Fraction left, Fraction right)
-        {
-            return Div(left, right);
+            return Div(l, r);
         }
         public static Fraction operator ++(Fraction frac)
         {
             frac.above++;
             return frac;
         }
-
         public static Fraction operator --(Fraction frac)
         {
             frac.above--;
             return frac;
+        }
+        public static bool operator ==(Fraction l, Fraction r)
+        {
+            return l.below == r.below && l.above == r.above;
+        }
+        public static bool operator !=(Fraction l, Fraction r)
+        {
+            return !(l == r);
         }
     }
 }

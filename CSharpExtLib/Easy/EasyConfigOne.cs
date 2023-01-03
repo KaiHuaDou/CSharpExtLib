@@ -29,16 +29,13 @@ namespace CSharpExtLib.Easy
         private string configPath;
         private FileStream configStream;
         private XmlSerializer configSerializer;
-        public bool OnBackup
-        {
-            get; set;
-        }
+        public bool OnBackup { get; set; }
         private FileStream GenStream()
         {
             FileStream stream = new FileStream(configPath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             return stream;
         }
-        public T GetConfig()
+        public T Get()
         {
             T config = new T();
             try
@@ -49,22 +46,20 @@ namespace CSharpExtLib.Easy
             catch (Exception)
             {
                 if (OnBackup == true)
-                {
                     File.Copy(configPath, configPath + ".bak");
-                }
-                ClearConfig();
+                Clear();
             }
             return config;
         }
 
-        public void SaveConfig(T data)
+        public void Save(T data)
         {
             lock (configSerializer)
                 configSerializer.Serialize(configStream, data);
         }
-        public void ClearConfig()
+        public void Clear()
         {
-            SaveConfig(new T());
+            Save(new T());
         }
     }
 }
