@@ -1,8 +1,8 @@
 ﻿using System.Windows.Media;
 
-namespace CSharpExtLib
+namespace CSharpExtLib.Easy
 {
-    public static class EasyConverter
+    public static class EasyConvert
     {
         public static Color ConvertColor(System.Drawing.Color color)
         {

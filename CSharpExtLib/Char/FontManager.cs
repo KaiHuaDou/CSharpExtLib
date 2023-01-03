@@ -2,9 +2,9 @@
 using System.Drawing;
 using System.Runtime.InteropServices;
 
-namespace CSharpExtLib
+namespace CSharpExtLib.Char
 {
-    public static class FontManager
+    public static class FontMgr
     {
         public static bool IsSymbolFont(string fontName)
         {

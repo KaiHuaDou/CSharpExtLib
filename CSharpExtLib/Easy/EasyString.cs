@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Text.RegularExpressions;
 
-namespace CSharpExtLibrary.Easy
+namespace CSharpExtLib.Easy
 {
     public static class EasyString
     {

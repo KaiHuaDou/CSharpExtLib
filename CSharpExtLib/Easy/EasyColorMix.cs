@@ -1,9 +1,9 @@
 ﻿using System.Windows.Media;
 using System;
 
-namespace CSharpExtLibrary.Easy
+namespace CSharpExtLib.Easy
 {
-    public static class EasyColor
+    public static class EasyColorMix
     {
         public static Color Normal(Color up, Color down)
         {
@@ -26,10 +26,10 @@ namespace CSharpExtLibrary.Easy
         public static Color Min(Color up, Color down)
         {
             Color result = new Color();
-            result.R = (byte) Math.Abs(up.R - down.R);
-            result.G = (byte) Math.Abs(up.G - down.G);
-            result.B = (byte) Math.Abs(up.B - down.B);
-            result.A = (byte) Math.Abs(up.A - down.A);
+            result.R = (byte) System.Math.Abs(up.R - down.R);
+            result.G = (byte) System.Math.Abs(up.G - down.G);
+            result.B = (byte) System.Math.Abs(up.B - down.B);
+            result.A = (byte) System.Math.Abs(up.A - down.A);
             return result;
         }
     }

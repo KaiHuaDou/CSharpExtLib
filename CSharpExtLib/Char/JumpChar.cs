@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading;
 
-namespace CSharpExtLib
+namespace CSharpExtLib.Char
 {
     public static class JumpChar
     {

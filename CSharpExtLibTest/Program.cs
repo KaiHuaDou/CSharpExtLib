@@ -1,8 +1,7 @@
 ﻿using System;
-using System.Windows;
 using CSharpExtLib.WPF;
 
-namespace CSharpExtLibraryTest
+namespace CSharpExtLibTest
 {
     public class Program
     {
