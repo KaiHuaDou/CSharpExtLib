@@ -2,9 +2,9 @@
         ResizeMode="NoResize" SizeToContent="WidthAndHeight" Title="选择字体">
     <DockPanel>
         <StackPanel Margin="10,5,10,10" DockPanel.Dock="Bottom" FlowDirection="RightToLeft" Orientation="Horizontal">
-            <Button x:Name="ConfirmButton" Margin="0,0,5,0" Padding="30,5,30,5" Click="ConfirmTask"
+            <Button x:Name="ConfirmButton" Margin="0,0,5,0" Padding="30,3,30,3" Click="ConfirmTask"
                     Content="确定" IsDefault="True" />
-            <Button x:Name="CancelButton" Margin="5,0,0,0" Padding="30,5,30,5" Click="CacelTask"
+            <Button x:Name="CancelButton" Margin="5,0,0,0" Padding="30,3,30,3" Click="CacelTask"
                     Content="取消" IsCancel="True" />
         </StackPanel>
         <StackPanel Margin="10,5,10,5" DockPanel.Dock="Bottom" Orientation="Horizontal">

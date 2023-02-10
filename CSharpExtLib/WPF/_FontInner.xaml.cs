@@ -8,20 +8,6 @@ using CSharpExtLib.Char;
 
 namespace CSharpExtLib.WPF
 {
-    public class FontDialog
-    {
-        public FontUnion Font;
-        public List<double> Sizes = new List<double> { 5.5, 6.5, 7.5, 10, 10.5, 11, 12, 14, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
-
-        public bool Show()
-        {
-            _FontInner dialog = new _FontInner { Sizes = Sizes };
-            dialog.ShowDialog( );
-            Font = dialog.Font;
-            return dialog.dialogResult;
-        }
-    }
-
     public partial class _FontInner : Window
     {
         public FontUnion Font;
@@ -87,12 +73,11 @@ namespace CSharpExtLib.WPF
         }
 
         private void ChangeFont(object o, SelectionChangedEventArgs e)
-            =>FontTextBox.Text = (string) ((ListBoxItem) FontListBox.SelectedItem).Content;
+            => FontTextBox.Text = (string) ((ListBoxItem) FontListBox.SelectedItem).Content;
 
         private void ChangeSize(object o, SelectionChangedEventArgs e)
             => SizeTextBox.Text = SizeListBox.SelectedItem.ToString( );
 
-        private void CacelTask(object o, RoutedEventArgs e)
-            => this.Close( );
+        private void CacelTask(object o, RoutedEventArgs e) => Close( );
     }
 }

@@ -6,7 +6,7 @@ namespace CSharpExtLib.WPF
 {
     public static class ColorPicker
     {
-        public static Color PickColor( )
+        public static Color Show( )
         {
             Color color = new Color( );
             ColorDialog cd = new ColorDialog

@@ -45,8 +45,9 @@
     <Compile Include="Math\Fraction.cs" />
     <Compile Include="Math\Universal.cs" />
     <Compile Include="Universal.cs" />
-    <Compile Include="WPF\FontDialog.xaml.cs">
-      <DependentUpon>FontDialog.xaml</DependentUpon>
+    <Compile Include="WPF\FontDialog.cs" />
+    <Compile Include="WPF\_FontInner.xaml.cs">
+      <DependentUpon>_FontInner.xaml</DependentUpon>
     </Compile>
     <Compile Include="Char\FontManager.cs" />
     <Compile Include="Char\JumpChar.cs" />
@@ -65,7 +66,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Page Include="WPF\FontDialog.xaml">
+    <Page Include="WPF\_FontInner.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
