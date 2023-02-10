@@ -6,7 +6,7 @@ namespace CSharpExtLib.Easy
     {
         public static Color ConvertColor(System.Drawing.Color color)
         {
-            Color result = new Color();
+            Color result = new Color( );
             result.R = color.R;
             result.G = color.G;
             result.B = color.B;

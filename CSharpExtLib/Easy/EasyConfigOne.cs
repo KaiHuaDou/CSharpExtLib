@@ -14,7 +14,7 @@ namespace CSharpExtLib.Easy
     /// 7. 为了可以应用于多线程，作者在使用文件流和序列化对象已经进行了加锁操作，但并不建议高并发使用，因为这样会导致大量的加锁操作最终使程序运行缓慢。
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public class EasyConfigOne<T> where T: class, new()
+    public class EasyConfigOne<T> where T : class, new()
     {
         public EasyConfigOne(string path)
         {
@@ -23,21 +23,21 @@ namespace CSharpExtLib.Easy
                 throw new FileNotFoundException("找不到指定的配置文件", path);
             }
             configPath = path;
-            configStream = GenStream();
+            configStream = GenStream( );
             configSerializer = new XmlSerializer(typeof(T));
         }
         private string configPath;
         private FileStream configStream;
         private XmlSerializer configSerializer;
         public bool OnBackup { get; set; }
-        private FileStream GenStream()
+        private FileStream GenStream( )
         {
             FileStream stream = new FileStream(configPath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             return stream;
         }
-        public T Get()
+        public T Get( )
         {
-            T config = new T();
+            T config = new T( );
             try
             {
                 lock (configSerializer)
@@ -47,7 +47,7 @@ namespace CSharpExtLib.Easy
             {
                 if (OnBackup == true)
                     File.Copy(configPath, configPath + ".bak");
-                Clear();
+                Clear( );
             }
             return config;
         }
@@ -57,9 +57,9 @@ namespace CSharpExtLib.Easy
             lock (configSerializer)
                 configSerializer.Serialize(configStream, data);
         }
-        public void Clear()
+        public void Clear( )
         {
-            Save(new T());
+            Save(new T( ));
         }
     }
 }

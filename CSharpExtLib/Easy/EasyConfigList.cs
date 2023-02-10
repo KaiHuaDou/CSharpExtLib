@@ -19,70 +19,70 @@ namespace CSharpExtLib.Easy
     {
         public EasyConfigList(string path)
         {
-            if(!File.Exists(path))
+            if (!File.Exists(path))
             {
                 throw new FileNotFoundException("找不到指定的配置文件", path);
             }
             configPath = path;
-            configStream = GenStream();
+            configStream = GenStream( );
             configSerializer = new XmlSerializer(typeof(HashSet<T>));
         }
         private string configPath;
         private FileStream configStream;
         private XmlSerializer configSerializer;
         public bool OnBackup { get; set; }
-        private FileStream GenStream()
+        private FileStream GenStream( )
         {
             FileStream stream = new FileStream(configPath, FileMode.OpenOrCreate, FileAccess.ReadWrite);
             return stream;
         }
-        public HashSet<T> Get()
+        public HashSet<T> Get( )
         {
-            HashSet<T> config = new HashSet<T>();
+            HashSet<T> config = new HashSet<T>( );
             try
             {
-                lock(configSerializer)
+                lock (configSerializer)
                     config = configSerializer.Deserialize(configStream) as HashSet<T>;
             }
             catch (Exception)
             {
-                if(OnBackup == true)
+                if (OnBackup == true)
                     File.Copy(configPath, configPath + ".bak");
-                Init();
+                Init( );
             }
             return config;
         }
 
         public void Save(HashSet<T> data)
         {
-            lock(configSerializer)
+            lock (configSerializer)
                 configSerializer.Serialize(configStream, data);
         }
 
         public void Add(T data)
         {
-            HashSet<T> savedData = Get();
+            HashSet<T> savedData = Get( );
             savedData.Add(data);
             Save(savedData);
         }
 
         public void Remove(T data)
         {
-            HashSet<T> savedData = Get();
+            HashSet<T> savedData = Get( );
             savedData.Remove(data);
             Save(savedData);
         }
 
-        public void Init()
+        public void Init( )
         {
             File.WriteAllText(configPath, "");
-            Save(new HashSet<T>());
+            Save(new HashSet<T>( ));
         }
 
-        public void Clear()
+        public void Clear( )
         {
-            lock(configSerializer)
-                configSerializer.Serialize(configStream, new HashSet<T>());
+            lock (configSerializer)
+                configSerializer.Serialize(configStream, new HashSet<T>( ));
         }
     }
 }

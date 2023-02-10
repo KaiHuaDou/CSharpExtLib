@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 namespace CSharpExtLib.Math
 {
     [Serializable]
-    public class Fraction: ISerializable
+    public class Fraction : ISerializable
     {
         private int _below;
         public int above { get; set; }
@@ -13,11 +13,13 @@ namespace CSharpExtLib.Math
             get { return _below; }
             set
             {
-                if (value != 0)  _below = value;
-                else throw new DivideByZeroException( );
+                if (value != 0)
+                    _below = value;
+                else
+                    throw new DivideByZeroException( );
             }
         }
-        public Fraction()
+        public Fraction( )
         {
             above = 0;
             below = 1;
@@ -27,17 +29,17 @@ namespace CSharpExtLib.Math
             above = a;
             below = b;
         }
-        public Fraction Simplify()
+        public Fraction Simplify( )
         {
             int maxFactor = Universal.MaxFactor(this.below, this.above);
             return new Fraction(above /= maxFactor, below /= maxFactor);
         }
         public static Fraction Add(Fraction a, Fraction b)
         {
-            Fraction result = new Fraction();
+            Fraction result = new Fraction( );
             result.below = a.below * b.below;
             result.above = a.above * b.below + b.above * a.below;
-            return result.Simplify();
+            return result.Simplify( );
         }
         public static Fraction Sub(Fraction a, Fraction b)
         {
@@ -45,10 +47,10 @@ namespace CSharpExtLib.Math
         }
         public static Fraction Mul(Fraction a, Fraction b)
         {
-            Fraction result = new Fraction();
+            Fraction result = new Fraction( );
             result.above = a.above * b.above;
             result.below = a.below * b.below;
-            return result.Simplify();
+            return result.Simplify( );
         }
         public static Fraction Div(Fraction a, Fraction b)
         {
@@ -65,11 +67,11 @@ namespace CSharpExtLib.Math
         }
         public override bool Equals(object obj)
         {
-            return this == (Fraction)obj;
+            return this == (Fraction) obj;
         }
         public override int GetHashCode( )
         {
-            return ((double)above / below).GetHashCode( );
+            return ((double) above / below).GetHashCode( );
         }
         public override string ToString( )
         {
@@ -80,7 +82,7 @@ namespace CSharpExtLib.Math
             info.AddValue("above", above);
             info.AddValue("below", below);
         }
-        public static Fraction operator + (Fraction l, Fraction r)
+        public static Fraction operator +(Fraction l, Fraction r)
         {
             return Add(l, r);
         }

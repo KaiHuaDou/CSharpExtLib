@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace CSharpExtLibrary
+namespace CSharpExtLib
 {
     public static class Universal
     {

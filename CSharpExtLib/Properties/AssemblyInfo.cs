@@ -4,12 +4,12 @@ using System.Runtime.InteropServices;
 // 有关程序集的一般信息由以下
 // 控制。更改这些特性值可修改
 // 与程序集关联的信息。
-[assembly: AssemblyTitle("CSharpExtLibrary")]
+[assembly: AssemblyTitle("CSharpExtLib")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("China")]
-[assembly: AssemblyProduct("CSharpExtLibrary")]
-[assembly: AssemblyCopyright("Copyright © China 2021")]
+[assembly: AssemblyCompany("KaiHuaDou Studio")]
+[assembly: AssemblyProduct("CSharpExtLib")]
+[assembly: AssemblyCopyright("Copyright © KaiHuaDou Studio 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

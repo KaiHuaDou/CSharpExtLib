@@ -9,7 +9,7 @@ namespace CSharpExtLib.Char
         public static bool IsSymbolFont(string fontName)
         {
             FontType fontType = FontSupporter.GetFontType(fontName);
-            if(fontType == FontType.SYMBOL || fontType == FontType.DECORATE)
+            if (fontType == FontType.SYMBOL || fontType == FontType.DECORATE)
             {
                 return true;
             }
@@ -36,7 +36,7 @@ namespace CSharpExtLib.Char
                 font = new Font(fontName, 15, FontStyle.Regular);
             }
             catch (Exception) { }
-            return GetFontType(Graphics.FromHwnd(new IntPtr()), font);
+            return GetFontType(Graphics.FromHwnd(new IntPtr( )), font);
         }
 
         [DllImport("gdi32", CharSet = CharSet.Ansi)]
@@ -49,8 +49,8 @@ namespace CSharpExtLib.Char
             Graphics graphics, Font font)
         {
             byte bFamilyType = 0;
-            IntPtr hdc = graphics.GetHdc();
-            IntPtr hFontOld = SelectObject(hdc, font.ToHfont());
+            IntPtr hdc = graphics.GetHdc( );
+            IntPtr hFontOld = SelectObject(hdc, font.ToHfont( ));
             int bufSize = GetOutlineTextMetrics(hdc, 0, IntPtr.Zero);
             IntPtr lpOtm = Marshal.AllocCoTaskMem(bufSize);
             Marshal.WriteInt32(lpOtm, bufSize);
@@ -63,7 +63,7 @@ namespace CSharpExtLib.Char
             Marshal.FreeCoTaskMem(lpOtm);
             SelectObject(hdc, hFontOld);
             graphics.ReleaseHdc(hdc);
-            return (FontType)bFamilyType;
+            return (FontType) bFamilyType;
         }
     }
 }

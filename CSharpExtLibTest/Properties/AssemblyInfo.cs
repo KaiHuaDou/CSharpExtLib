@@ -1,5 +1,4 @@
 ﻿using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // 有关程序集的一般信息由以下
@@ -8,9 +7,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("CSharpExtLibTest")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("China")]
+[assembly: AssemblyCompany("KaiHuaDou Studio")]
 [assembly: AssemblyProduct("CSharpExtLibTest")]
-[assembly: AssemblyCopyright("Copyright © China 2022")]
+[assembly: AssemblyCopyright("Copyright © KaiHuaDou Studio 2023")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
