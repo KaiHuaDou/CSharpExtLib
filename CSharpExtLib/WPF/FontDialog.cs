@@ -5,11 +5,21 @@ namespace CSharpExtLib.WPF
     public class FontDialog
     {
         public FontUnion Font;
-        public List<double> Sizes = new List<double> { 5.5, 6.5, 7.5, 10, 10.5, 11, 12, 14, 18, 20, 22, 24, 26, 28, 36, 48, 72 };
 
         public bool Show( )
         {
-            _FontInner dialog = new _FontInner { Sizes = Sizes };
+            _FontInner dialog = new _FontInner( );
+            return ShowDialog(dialog);
+        }
+
+        public bool Show(List<double> sizes)
+        {
+            _FontInner dialog = new _FontInner { Sizes = sizes };
+            return ShowDialog(dialog);
+        }
+
+        private bool ShowDialog(_FontInner dialog)
+        {
             dialog.ShowDialog( );
             Font = dialog.Font;
             return dialog.dialogResult;

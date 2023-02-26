@@ -44,8 +44,8 @@
     <Compile Include="Easy\EasyString.cs" />
     <Compile Include="Math\Fraction.cs" />
     <Compile Include="Math\Universal.cs" />
-    <Compile Include="Universal.cs" />
     <Compile Include="WPF\FontDialog.cs" />
+    <Compile Include="WPF\ListBoxItem.cs" />
     <Compile Include="WPF\_FontInner.xaml.cs">
       <DependentUpon>_FontInner.xaml</DependentUpon>
     </Compile>
