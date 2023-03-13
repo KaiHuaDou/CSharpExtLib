@@ -3,21 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExtLib", "CSharpExtLib\CSharpExtLib.csproj", "{0D37BCF6-C6E2-486D-9911-1CDB4D93778E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExtLibTest", "CSharpExtLibTest\CSharpExtLibTest.csproj", "{1113F025-D50B-4D5B-A3BD-FFB4DBAABDFE}"
-	ProjectSection(ProjectDependencies) = postProject
-		{0D37BCF6-C6E2-486D-9911-1CDB4D93778E} = {0D37BCF6-C6E2-486D-9911-1CDB4D93778E}
-	EndProjectSection
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CSharpExtLib", "CSharpExtLib\CSharpExtLib.csproj", "{0D37BCF6-C6E2-486D-9911-1CDB4D93778E}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FA0952BA-BE78-4566-A372-76D81ADAB862}"
 	ProjectSection(SolutionItems) = preProject
 		.gitattributes = .gitattributes
 		.gitignore = .gitignore
+		.github\workflows\build.yml = .github\workflows\build.yml
 		LICENSE = LICENSE
 		README.md = README.md
-		.github\workflows\build.yml = .github\workflows\build.yml
 	EndProjectSection
+EndProject
+Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "CSharpExtLibHelp", "CSharpExtLibHelp\CSharpExtLibHelp.shfbproj", "{E83F8663-337C-440C-BFB5-5DAAFE26B942}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CSharpExtLibTest", "CSharpExtLibTest\CSharpExtLibTest.csproj", "{7E84C961-7E3E-4787-BB64-0A2062292581}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +28,14 @@ Global
 		{0D37BCF6-C6E2-486D-9911-1CDB4D93778E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0D37BCF6-C6E2-486D-9911-1CDB4D93778E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0D37BCF6-C6E2-486D-9911-1CDB4D93778E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1113F025-D50B-4D5B-A3BD-FFB4DBAABDFE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1113F025-D50B-4D5B-A3BD-FFB4DBAABDFE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1113F025-D50B-4D5B-A3BD-FFB4DBAABDFE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1113F025-D50B-4D5B-A3BD-FFB4DBAABDFE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E83F8663-337C-440C-BFB5-5DAAFE26B942}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E83F8663-337C-440C-BFB5-5DAAFE26B942}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E83F8663-337C-440C-BFB5-5DAAFE26B942}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E83F8663-337C-440C-BFB5-5DAAFE26B942}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7E84C961-7E3E-4787-BB64-0A2062292581}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7E84C961-7E3E-4787-BB64-0A2062292581}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7E84C961-7E3E-4787-BB64-0A2062292581}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7E84C961-7E3E-4787-BB64-0A2062292581}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,12 +1,16 @@
 # CSharpExtLib
 ![](https://img.shields.io/github/actions/workflow/status/kaihuadou/csharpextlib/build.yml) ![](https://img.shields.io/github/license/kaihuadou/csharpextlib) ![](https://img.shields.io/github/commit-activity/w/kaihuadou/csharpextlib)
 
-一些十分有用的C#代码段
+一些十分有用的 C# 代码段
 
 > Author: KaiHuaDou
 
 ## 功能
-> Version 1.4.2
+> Version 1.4.3
+
+### CSharpExtLib
++ Standard: 一些实用标准函数
++ Exetensions: 部分标准类的扩展
 
 ### CSharpExtLib.Char
 + FontManager：一键判断字体类型是否为符号字体（如 Wingdings）

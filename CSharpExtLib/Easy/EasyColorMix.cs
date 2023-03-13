@@ -2,8 +2,17 @@
 
 namespace CSharpExtLib.Easy
 {
+    /// <summary>
+    /// 模拟 Photoshop 的颜色混合机制
+    /// </summary>
     public static class EasyColorMix
     {
+        /// <summary>
+        /// 以普通模式混合颜色 (使用 WPF 色彩系统)
+        /// </summary>
+        /// <param name="up">上方图层颜色</param>
+        /// <param name="down">下方图层颜色</param>
+        /// <returns>混合后的的颜色</returns>
         public static Color Normal(Color up, Color down)
         {
             Color result = new Color( );
@@ -13,6 +22,13 @@ namespace CSharpExtLib.Easy
             result.A = (byte) ((up.A + down.A) / 2);
             return result;
         }
+
+        /// <summary>
+        /// 以“乘法”模式混合颜色 (使用 WPF 色彩系统)
+        /// </summary>
+        /// <param name="up">上方图层颜色</param>
+        /// <param name="down">下方图层颜色</param>
+        /// <returns>混合后的的颜色</returns>
         public static Color Multiply(Color up, Color down)
         {
             Color result = new Color( );
@@ -22,6 +38,13 @@ namespace CSharpExtLib.Easy
             result.A = (byte) (up.A * down.A / 255);
             return result;
         }
+
+        /// <summary>
+        /// 以“相减”模式混合颜色 (使用 WPF 色彩系统)
+        /// </summary>
+        /// <param name="up">上方图层颜色</param>
+        /// <param name="down">下方图层颜色</param>
+        /// <returns>混合后的的颜色</returns>
         public static Color Min(Color up, Color down)
         {
             Color result = new Color( );

@@ -5,22 +5,41 @@ namespace CSharpExtLib.Easy
 {
     public static class EasyString
     {
+        /// <summary>
+        /// 获取字符串的最后一行
+        /// </summary>
+        /// <param name="text">字符串</param>
+        /// <returns>字符串的最后一行</returns>
         public static string GetLastLine(string text)
         {
             Match match = Regex.Match(text, "^.*$", RegexOptions.Multiline | RegexOptions.RightToLeft);
             return match.Value;
         }
-        public static List<string> GetLastLines(string text, int count)
+
+        /// <summary>
+        /// 获取字符串的最后 <paramref name="count"/> 行
+        /// </summary>
+        /// <param name="text">字符串</param>
+        /// <param name="count">行数</param>
+        /// <returns>最后 <paramref name="count"/> 行的数组</returns>
+        public static string[] GetLastLines(string text, int count)
         {
-            List<string> lines = new List<string>( );
+            string[] lines = new string[count];
             Match match = Regex.Match(text, "^.*$", RegexOptions.Multiline | RegexOptions.RightToLeft);
-            while (match.Success && lines.Count < count)
-            {
-                lines.Insert(0, match.Value);
+            for(int i = 0;i < count;i ++)
+            { 
+                lines[i] = match.Value;
                 match = match.NextMatch( );
             }
             return lines;
         }
+
+        /// <summary>
+        /// 将字符串压缩至 <paramref name="len"/> 个字符长 
+        /// </summary>
+        /// <param name="str">字符串</param>
+        /// <param name="len">长度</param>
+        /// <returns>压缩后的字符串</returns>
         public static string ZipStr(string str, int len)
         {
             if (str.Length <= len)

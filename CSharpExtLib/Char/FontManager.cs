@@ -4,66 +4,64 @@ using System.Runtime.InteropServices;
 
 namespace CSharpExtLib.Char
 {
+    /// <summary>
+    /// 管理字体相关的类
+    /// </summary>
     public static class FontMgr
     {
-        public static bool IsSymbolFont(string fontName)
-        {
-            FontType fontType = FontSupporter.GetFontType(fontName);
-            if (fontType == FontType.SYMBOL || fontType == FontType.DECORATE)
-            {
-                return true;
-            }
-            return false;
-        }
-    }
-    public enum FontType : int
-    {
-        EMPTY = 0,
-        ERROR = 1,
-        DISPLAY = 2,
-        SCRIPT = 3,
-        DECORATE = 4,
-        SYMBOL = 5
-    }
-
-    public class FontSupporter
-    {
-        public static FontType GetFontType(string fontName)
-        {
-            Font font = new Font("Arial", 15);
-            try
-            {
-                font = new Font(fontName, 15, FontStyle.Regular);
-            }
-            catch (Exception) { }
-            return GetFontType(Graphics.FromHwnd(new IntPtr( )), font);
-        }
-
         [DllImport("gdi32", CharSet = CharSet.Ansi)]
         private static extern int GetOutlineTextMetrics(IntPtr hdc, int cbData, IntPtr lpOtm);
 
         [DllImport("gdi32", CharSet = CharSet.Ansi, SetLastError = true, ExactSpelling = true)]
         private static extern IntPtr SelectObject(IntPtr hdc, IntPtr hObj);
 
-        private static FontType GetFontType(
-            Graphics graphics, Font font)
+        /// <summary>
+        /// 根据字体名称确定字体是否是符号字体
+        /// </summary>
+        /// <param name="fontName">字体名称</param>
+        /// <returns>
+        /// fontName 关联的 <see cref="FontType"/> 是否以下二者之一
+        /// + <see cref="FontType.Decorate"/> 
+        /// + <see cref="FontType.Symbol"/>
+        /// </returns>
+        public static bool IsSymbolFont(string fontName)
         {
-            byte bFamilyType = 0;
-            IntPtr hdc = graphics.GetHdc( );
-            IntPtr hFontOld = SelectObject(hdc, font.ToHfont( ));
+            FontType fontType = GetFontType(fontName);
+            return fontType == FontType.Symbol || fontType == FontType.Decorate;
+        }
+
+        /// <summary>
+        /// 根据字体名称获取字体类型
+        /// </summary>
+        /// <param name="fontName">字体名称</param>
+        /// <returns>字体类型参见<see cref="FontType"/></returns>
+        public static FontType GetFontType(string fontName)
+        {
+            Font font = new Font("Arial", 1);
+            try { font = new Font(fontName, 1); } catch { }
+            return GetFontType(font);
+        }
+
+        private static FontType GetFontType(Font font)
+        {
+            byte familyType = 0;
+            Graphics graph = Graphics.FromHwnd(new IntPtr( ));
+            IntPtr hdc = graph.GetHdc( );
+            IntPtr fontObj = SelectObject(hdc, font.ToHfont( ));
             int bufSize = GetOutlineTextMetrics(hdc, 0, IntPtr.Zero);
-            IntPtr lpOtm = Marshal.AllocCoTaskMem(bufSize);
-            Marshal.WriteInt32(lpOtm, bufSize);
-            int success = GetOutlineTextMetrics(hdc, bufSize, lpOtm);
+            IntPtr bufPtr = Marshal.AllocCoTaskMem(bufSize);
+            Marshal.WriteInt32(bufPtr, bufSize);
+            int success = GetOutlineTextMetrics(hdc, bufSize, bufPtr);
             if (success != 0)
             {
                 int offset = 61;
-                bFamilyType = Marshal.ReadByte(lpOtm, offset);
+                familyType = Marshal.ReadByte(bufPtr, offset);
             }
-            Marshal.FreeCoTaskMem(lpOtm);
-            SelectObject(hdc, hFontOld);
-            graphics.ReleaseHdc(hdc);
-            return (FontType) bFamilyType;
+            Marshal.FreeCoTaskMem(bufPtr);
+            SelectObject(hdc, fontObj);
+            graph.ReleaseHdc(hdc);
+            return (FontType) familyType;
         }
+
     }
 }
