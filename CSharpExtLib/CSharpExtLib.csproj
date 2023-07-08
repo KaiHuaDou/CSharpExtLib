@@ -1,20 +1,26 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net452</TargetFramework>
+        <TargetFramework>net462</TargetFramework>
         <OutputType>Library</OutputType>
-        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
         <UseWindowsForms>true</UseWindowsForms>
         <UseWPF>true</UseWPF>
-        <EnableNETAnalyzers>True</EnableNETAnalyzers>
-        <AnalysisLevel>6.0-recommended</AnalysisLevel>
+        <LangVersion>11.0</LangVersion>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <Optimize>True</Optimize>
+    <PropertyGroup>
+        <AnalysisLevel>latest-recommended</AnalysisLevel>
         <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+        <DebugType>full</DebugType>
+        <WarningLevel>7</WarningLevel>
     </PropertyGroup>
-    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-      <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
-      <Optimize>True</Optimize>
-    </PropertyGroup>
+    <ItemGroup>
+      <Page Remove="WPF\_FontInner.xaml" />
+    </ItemGroup>
+    <ItemGroup>
+      <EmbeddedResource Include="WPF\_FontInner.xaml" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+    </ItemGroup>
 </Project>

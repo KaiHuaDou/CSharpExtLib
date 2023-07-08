@@ -2,22 +2,21 @@
 using System.Windows.Media;
 using CSharpExtLib.Easy;
 
-namespace CSharpExtLib.WPF
+namespace CSharpExtLib.WPF;
+
+public static class ColorPicker
 {
-    public static class ColorPicker
+    public static Color Show( )
     {
-        public static Color Show( )
+        Color color = new( );
+        ColorDialog cd = new( )
         {
-            Color color = new Color( );
-            ColorDialog cd = new ColorDialog
-            {
-                AnyColor = true,
-                FullOpen = true,
-                SolidColorOnly = false
-            };
-            if (cd.ShowDialog( ) == DialogResult.OK)
-                color = EasyConvert.ConvertColor(cd.Color);
-            return color;
-        }
+            AnyColor = true,
+            FullOpen = true,
+            SolidColorOnly = false
+        };
+        if (cd.ShowDialog( ) == DialogResult.OK)
+            color = EasyConvert.ConvertColor(cd.Color);
+        return color;
     }
 }
