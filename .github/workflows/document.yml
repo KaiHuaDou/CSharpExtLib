@@ -1,4 +1,4 @@
-name: .NET Build
+name: Document Build
 
 on:
   push:
@@ -22,8 +22,13 @@ jobs:
       - name: Install .NET
         uses: actions/setup-dotnet@v3
 
+      - name: Install SHFB
+        uses: Bassman2/setup-SHFB@v1
+        with:
+          version: 2023.3.4.0
+
       - name: Build Solution
-        run: dotnet build ./CSharpExtLib/CSharpExtLib.csproj --configuration $env:Configuration
+        run: dotnet build ./CSharpExtLibHelp/CSharpExtLibHelp.shfbproj --configuration $env:Configuration
         env:
           Configuration: ${{ matrix.configuration }}
 
@@ -31,4 +36,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: ${{ matrix.configuration }}
-          path: ./CSharpExtLib/bin/net462/${{ matrix.configuration }}
+          path: ./CSharpExtLibHelp/Help/${{ matrix.configuration }}

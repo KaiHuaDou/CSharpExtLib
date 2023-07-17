@@ -1,26 +1,22 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
-        <TargetFramework>net462</TargetFramework>
+        <TargetFrameworks>net462</TargetFrameworks>
         <OutputType>Library</OutputType>
         <GenerateAssemblyInfo>False</GenerateAssemblyInfo>
         <UseWindowsForms>true</UseWindowsForms>
         <UseWPF>true</UseWPF>
         <LangVersion>11.0</LangVersion>
+        <PublishReadyToRun>true</PublishReadyToRun>
         <GenerateDocumentationFile>True</GenerateDocumentationFile>
     </PropertyGroup>
     <PropertyGroup>
         <AnalysisLevel>latest-recommended</AnalysisLevel>
-        <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
         <DebugType>full</DebugType>
         <WarningLevel>7</WarningLevel>
     </PropertyGroup>
     <ItemGroup>
-      <Page Remove="WPF\_FontInner.xaml" />
-    </ItemGroup>
-    <ItemGroup>
-      <EmbeddedResource Include="WPF\_FontInner.xaml" />
-    </ItemGroup>
-    <ItemGroup>
-      <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+        <None Include="WPF\_FontInner.xaml" />
+        <EmbeddedResource Include="WPF\_FontInner.xaml" />
+        <PackageReference Include="System.ValueTuple" Version="4.5.0" />
     </ItemGroup>
 </Project>
